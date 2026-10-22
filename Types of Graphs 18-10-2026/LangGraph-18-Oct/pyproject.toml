@@ -1,5 +1,5 @@
 [project]
-name = "langgraph-17-oct"
+name = "langgraph-18-oct"
 version = "0.1.0"
 description = "Types of graphs in LangGraph - class demo code"
 readme = "README.md"

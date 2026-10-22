@@ -42,7 +42,7 @@ class Student(BaseModel):
             raise ValueError('age must be between 18 to 50')
         return age
 
-student = Student(age='Ten', name='Akshay', email='akshay@telusko.com', phone_no='+9198899-87678')
+student = Student(age='Ten', name='Akshay', email='student@example.com', phone_no='+9199999-00002')
 print(student.name)
 print(student.age)
 print(student.email)

@@ -249,90 +249,35 @@ Every major module ends with a deployable project, framed as a real customer sce
 
 This repository holds **all the source code** taught session by session. Each folder is named by topic and session date, so you can follow along with the exact code from class.
 
-Each folder contains only **that session's own files**, so nothing is repeated across weeks. Every folder still ships its own `pyproject.toml`, `uv.lock` and `.env.example`, so you can `uv sync` and run any session on its own without touching the others.
+Every folder ships its own `pyproject.toml` and `.env.example`, so you can `uv sync` and run any session on its own without touching the others.
 
-```
-agentic-ai-engineering-with-python/
-│
-├── 📁 Getting Started with LangChain  23-08-2026/
-│   └── pythonlive/                 # Talking to LLM: first API calls & LangChain
-│       ├── telusko-app1.py         # Raw OpenAI REST call with requests
-│       ├── telusko-app2.py         # OpenAI Python SDK: Responses API
-│       ├── telusko-lc.py           # First LangChain app: ChatOpenAI
-│       ├── telusko-lcm.py          # System & Human messages, tokens, history
-│       ├── pyproject.toml          # Dependencies (managed with uv)
-│       ├── uv.lock                 # Locked versions, same setup as class
-│       └── .env.example            # Copy to .env and add your own API key
-│
-├── 📁 Getting Started with LangChain Part-2 29-08-2026/
-│   ├── prompt-template.py          # ChatPromptTemplate with variables
-│   ├── output-parser.py            # StrOutputParser & JsonOutputParser
-│   ├── lcel_pipe.py                # LCEL: chaining with the pipe operator
-│   ├── telusko-image.py            # Multimodal input: image URL & local file
-│   ├── hf-demo.py                  # Hugging Face endpoint with ChatHuggingFace
-│   ├── ollama-demo.py              # Local open-source model with Ollama
-│   ├── sample.jpg                  # Test image for the multimodal demo
-│   └── .env.example                # OpenAI & Hugging Face keys go here
-│
-├── 📁 LangChain Tools and Agents 30-08-2026/
-│   └── pythonlive/                 # Why tools are needed, and how to build them
-│       ├── why-tool.py             # Where a plain LLM fails: time & exact maths
-│       ├── first-tool.py           # The @tool decorator: name, description, args
-│       ├── llm-tool.py             # bind_tools and reading tool_calls
-│       ├── tool-in-val.py          # Input validation with a Pydantic args_schema
-│       ├── stream-demo.py          # Streaming from a model and from a chain
-│       ├── imagegen.py             # Chain writes the prompt, then generates an image
-│       └── .env.example            # OpenAI & Hugging Face keys go here
-│
-├── 📁 Tool Calling (Part-2) - 05-09-2026/
-│   └── pythonlive/                 # From a manual tool loop to a real agent
-│       ├── tool_calling_loop.py    # The tool-calling loop written by hand
-│       ├── llm-tool.py             # Reading tool_calls and running the tool yourself
-│       ├── agent_too_loop.py       # Same loop handled by create_agent
-│       ├── moretool-agent.py       # Multi-tool agent over orders & stock data
-│       ├── agent-tool-memory.py    # Conversation memory with InMemorySaver & thread_id
-│       ├── stream-agent-work.py    # Streaming an agent's steps as it works
-│       ├── tool-agent-project.py   # Mini project: support agent with validated refunds
-│       └── .env.example            # OpenAI & Hugging Face keys go here
-│
-├── 📁 Agent Middleware 06-09-2026/
-│   └── middleware/                 # Controlling an agent without rewriting it
-│       ├── nomiddleware.py         # The baseline agent, before any middleware
-│       ├── middleware-basic1.py    # The four hooks: before/after model, wrap model/tool
-│       ├── dynamic-prompt-mw.py    # System prompt built per request from context
-│       ├── dynamic-modelmw.py      # Route easy questions to a cheap model, hard ones to a strong one
-│       ├── dynamic-tool-mw.py      # Expose different tools depending on the request
-│       ├── tool-retry-mw.py        # ToolRetryMiddleware when a tool call fails
-│       ├── summary-mw.py           # SummarizationMiddleware to keep long chats in budget
-│       └── .env.example            # OpenAI key goes here
-│
-├── 📁 MCP (Part - 2) 13-09-2026/
-│   └── MCP/                        # Building an MCP server and calling it from LangChain
-│       ├── my_mcp_server.py        # FastMCP server exposing tools over stdio
-│       ├── my_mcp_client.py        # LangChain client that loads MCP tools and runs a tool call
-│       └── .env.example            # OpenAI key goes here (client only)
-│
-├── 📁 Python Gaps for AI/          # Recorded refresher: Python you need before agents
-│   ├── Working with JSON in Python/
-│   │   └── json_handling/          # json.loads/dumps, nested data, reading & writing files
-│   ├── Virtual Environments and Packages/
-│   │   └── webapp/                 # uv project setup: pyproject.toml, uv.lock & a pinned Python
-│   ├── Handling API Keys and Secrets/
-│   │   └── webapp/                 # Loading values from .env with python-dotenv
-│   └── Coroutines_ async and await/
-│       └── coroutine/              # async/await, create_task & running work concurrently
-│
-├── 📁 Calling Your First LLM/
-│   └── AI-Project/
-│       ├── openai-project/         # OpenAI Responses API: instructions, temperature, token limit
-│       ├── genai-project/          # Gemini with google-genai, plus reading token usage
-│       ├── anthropic-project/      # Claude with the Anthropic SDK and a system prompt
-│       └── youtube-script-generator/  # Mini project: OpenAI, Gemini & Claude in one pipeline
-│
-└── 📄 README.md
-```
+| # | Session folder | What it covers |
+|:--|:---------------|:---------------|
+| | **Recorded refresher** | |
+| | `Python Gaps for AI` | JSON, virtual environments, `.env` files and `async`/`await` |
+| | **Live sessions** | |
+| 1 | `Calling Your First LLM` | OpenAI, Gemini and Claude SDKs, plus a YouTube script generator |
+| 2 | `Getting Started with LangChain  23-08-2026` | Raw API calls, the OpenAI SDK and a first LangChain app |
+| 3 | `Getting Started with LangChain Part-2 29-08-2026` | Prompt templates, output parsers, LCEL, images, Hugging Face and Ollama |
+| 4 | `LangChain Tools and Agents 30-08-2026` | The `@tool` decorator, `bind_tools`, input validation and streaming |
+| 5 | `Tool Calling (Part-2) - 05-09-2026` | The tool-calling loop, `create_agent`, agent memory and a support agent |
+| 6 | `Agent Middleware 06-09-2026` | Middleware hooks, dynamic prompts, model routing and tool retries |
+| 7 | `Agent Middleware (Part - 2)  12-09-2026` | More middleware, including PII handling |
+| 8 | `MCP (Part - 2) 13-09-2026` | A FastMCP server and a LangChain client |
+| 9 | `MCP (Part -3) 19-09-2026` | stdio, sessions, HTTP transport and notifications |
+| 10 | `MCP (Part - 4) 20-09-2026` | Tool-to-tool calls, error handling, JWT auth and the GitHub MCP server |
+| 11 | `Data Modeling with Pydantic` | Models, field and model validators, computed fields and serialization |
+| 12 | `Embeddings and Vector Stores 26-09-2026` | Embedding basics and comparing providers |
+| 13 | `RAG Fundamentals and Production Techniques 27-09-2026` | Splitting, a Chroma store, the basic RAG flow and retrieval strategies |
+| 14 | `RAG Evaluation and Production Techniques 03-10-2026` | Chunking, citations, query rewriting, pipelines and evaluation |
+| 15 | `Building a Complete RAG Application 04-10-2026` | Hybrid search, metadata filtering, reranking and corrective RAG |
+| 16 | `Secure Enterprise RAG Assistant 10-10-2026` | FastAPI, pgvector and per-user access rules |
+| 17 | `Building a Support App with MCP 11-10-2026` | A full support app: backend, MCP server, role-based auth and a web UI |
+| 18 | `Getting Started with LangGraph 17-10-2026` | State, nodes and edges, with generated graph diagrams |
+| 19 | `Types of Graphs 18-10-2026` | Conditional edges, parallel nodes and loops |
 
-> 📌 **New folders are added after every weekend session** as the course moves through LangChain, RAG, LangGraph, CrewAI, MCP & A2A, security, observability, cloud deployment, and the FDE capstone.
+> 📌 **A new folder is added after every weekend session** as the course moves through LangGraph, CrewAI, A2A, security, observability, cloud deployment and the FDE capstone.
+
 
 ---
 

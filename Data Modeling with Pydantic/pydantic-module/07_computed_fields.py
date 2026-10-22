@@ -12,8 +12,8 @@ class Student(BaseModel):
     def username(self) -> str:
         return self.email.split('@')[0]
 
-student1 = Student(name='Akshay', email='akshayagarwal@telusko.com')
+student1 = Student(name='Akshay', email='student@example.com')
 print(student1)
 
-student1.email = 'something@telusko.com'
+student1.email = 'other@example.com'
 print(student1)

@@ -11,7 +11,7 @@ class Student(BaseModel):
 studen1 = Student(
     name='Akshay',
     age=30,
-    email='akshay@telusko.com'
+    email='student@example.com'
 )
 
 print(type(studen1))

@@ -17,7 +17,7 @@ course2 = Course(title='Advanced Python', duration_in_hours=5, price=29.99)
 student1 = Student(
     name='Akshay',
     age=30,
-    email='akshay@telusko.com',
+    email='student@example.com',
     courses=[course1, course2]
 )
 

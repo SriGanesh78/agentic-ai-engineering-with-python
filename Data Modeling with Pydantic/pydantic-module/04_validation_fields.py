@@ -21,7 +21,7 @@ class Student(BaseModel):
     email: EmailStr
     phone_number: PhoneNumber
 
-student = Student(age=35, name='Akshay', email='akshay@telusko.com', phone_number='+919887987988')
+student = Student(age=35, name='Akshay', email='student@example.com', phone_number='+919999900001')
 print(student.name)
 print(student.age)
 print(student.is_enrolled)
